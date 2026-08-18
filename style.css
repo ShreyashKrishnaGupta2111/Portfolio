@@ -4,197 +4,312 @@
     box-sizing: border-box;
 }
 
+:root {
+
+    --red: #e50914;
+    --red2: #ff2733;
+
+    --blue: #0878ff;
+
+    --bg: #040507;
+
+    --panel: #090b10;
+
+    --line: #1b202a;
+
+    --muted: #727985;
+
+}
+
 html {
     scroll-behavior: smooth;
 }
 
 body {
-    background: #050505;
-    color: #ffffff;
-    font-family: "Inter", sans-serif;
+
+    background: var(--bg);
+
+    color: white;
+
+    font-family: Inter, sans-serif;
+
     overflow-x: hidden;
-}
 
-::selection {
-    background: #e50914;
-    color: #fff;
 }
 
 
-/* ================= LOADER ================= */
+/* BACKGROUND */
 
-#loader {
+body::before {
+
+    content: "";
+
     position: fixed;
+
     inset: 0;
 
-    background: #050505;
+    z-index: -3;
 
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    background:
+
+        radial-gradient(
+            circle at 75% 20%,
+            rgba(8,120,255,.12),
+            transparent 25%
+        ),
+
+        radial-gradient(
+            circle at 20% 70%,
+            rgba(229,9,20,.1),
+            transparent 30%
+        ),
+
+        #040507;
+
+}
+
+
+/* NOISE */
+
+.noise {
+
+    position: fixed;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    z-index: 9000;
+
+    opacity: .035;
+
+    background-image:
+
+        url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.8'/%3E%3C/svg%3E");
+
+}
+
+
+/* LOADER */
+
+#loader {
+
+    position: fixed;
+
+    inset: 0;
+
+    background: #030406;
 
     z-index: 99999;
 
-    transition: 0.8s;
+    display: grid;
+
+    place-items: center;
+
+    align-content: center;
+
+    transition: .8s;
+
 }
 
 .loader-spider {
+
     font-size: 80px;
 
-    animation:
-        spiderLoader 1s infinite alternate;
+    animation: float 1s ease-in-out infinite alternate;
+
 }
 
-#loader p {
+.loader-web {
+
+    position: absolute;
+
+    width: 420px;
+
+    height: 420px;
+
+    border: 1px solid #fff2;
+
+    border-radius: 50%;
+
+    box-shadow:
+
+        0 0 0 40px #fff1,
+
+        0 0 0 80px #fff1,
+
+        0 0 0 120px #fff1;
+
+    animation: spin 8s linear infinite;
+
+}
+
+.loader-spider + p {
+
     margin-top: 20px;
 
-    color: #e50914;
+    color: var(--red);
 
-    font-size: 11px;
+    font-size: 10px;
 
     letter-spacing: 4px;
 
     font-weight: 800;
+
 }
 
-@keyframes spiderLoader {
-
-    from {
-        transform: translateY(-15px) rotate(-5deg);
-    }
+@keyframes spin {
 
     to {
-        transform: translateY(15px) rotate(5deg);
+        transform: rotate(360deg);
+    }
+
+}
+
+@keyframes float {
+
+    to {
+        transform: translateY(-18px) rotate(6deg);
     }
 
 }
 
 
-/* ================= NAVBAR ================= */
+/* NAVBAR */
 
 .navbar {
 
+    height: 78px;
+
     position: fixed;
 
-    top: 0;
-    left: 0;
-
-    width: 100%;
-
-    height: 80px;
-
-    padding: 0 6%;
-
-    display: flex;
-
-    justify-content: space-between;
-    align-items: center;
+    inset: 0 0 auto;
 
     z-index: 5000;
 
-    background: rgba(5,5,5,0.75);
+    display: flex;
 
-    backdrop-filter: blur(15px);
+    align-items: center;
 
-    border-bottom: 1px solid rgba(255,255,255,0.08);
+    justify-content: space-between;
+
+    padding: 0 6%;
+
+    background: rgba(3,4,6,.68);
+
+    backdrop-filter: blur(16px);
+
+    border-bottom: 1px solid #fff1;
+
 }
 
 .logo {
 
     text-decoration: none;
 
-    color: white;
-
-    font-family: "Bebas Neue";
-
-    font-size: 28px;
+    font: 32px "Bebas Neue";
 
     letter-spacing: 3px;
+
 }
 
 .logo span {
-    color: #e50914;
+
+    color: var(--red);
+
 }
 
 nav {
 
     display: flex;
 
-    gap: 30px;
+    gap: 28px;
+
 }
 
 nav a {
 
     text-decoration: none;
 
-    color: #aaa;
+    color: #8e949d;
 
-    font-size: 10px;
+    font-size: 9px;
 
     font-weight: 800;
 
     letter-spacing: 2px;
 
-    transition: 0.3s;
+    transition: .3s;
+
 }
 
 nav a:hover {
-    color: #e50914;
+
+    color: white;
+
+    text-shadow: 0 0 12px var(--red);
+
 }
 
 .menu-btn {
 
     display: none;
 
-    border: none;
-
     background: none;
+
+    border: 0;
 
     color: white;
 
     font-size: 25px;
+
 }
 
 
-/* ================= WEB BACKGROUND ================= */
+/* HUD */
 
-.web-background {
+.hud {
 
     position: fixed;
 
-    width: 700px;
-    height: 700px;
+    z-index: 20;
 
-    right: -250px;
     top: 100px;
 
-    opacity: 0.08;
+    display: flex;
 
-    border-radius: 50%;
+    flex-direction: column;
 
-    background:
-        repeating-radial-gradient(
-            circle,
-            transparent 0,
-            transparent 40px,
-            white 41px,
-            transparent 42px
-        );
+    gap: 8px;
 
-    pointer-events: none;
+    color: #454c57;
 
-    z-index: 0;
+    font: 8px Inter;
+
+    letter-spacing: 2px;
+
+}
+
+.hud-left {
+    left: 25px;
+}
+
+.hud-right {
+
+    right: 25px;
+
+    text-align: right;
+
 }
 
 
-/* ================= HERO ================= */
+/* HERO */
 
 .hero {
 
     min-height: 100vh;
 
-    padding: 150px 8% 80px;
+    padding: 130px 7% 80px;
 
     display: flex;
 
@@ -204,214 +319,173 @@ nav a:hover {
 
     overflow: hidden;
 
-    background:
-
-        radial-gradient(
-            circle at 80% 50%,
-            rgba(20,50,140,0.25),
-            transparent 35%
-        ),
-
-        radial-gradient(
-            circle at 20% 80%,
-            rgba(229,9,20,0.16),
-            transparent 30%
-        ),
-
-        #050505;
 }
 
-.hero-content {
+.hero-copy {
+
+    width: 52%;
 
     position: relative;
 
-    z-index: 5;
+    z-index: 4;
 
-    max-width: 900px;
 }
 
-.availability {
+.status-pill {
 
     display: inline-flex;
 
+    gap: 9px;
+
     align-items: center;
 
-    gap: 10px;
+    border: 1px solid #252a34;
 
-    padding: 8px 14px;
+    padding: 8px 12px;
 
-    border: 1px solid #252525;
+    color: #89909a;
 
-    font-size: 9px;
+    font-size: 8px;
 
     font-weight: 800;
 
     letter-spacing: 2px;
 
-    color: #aaa;
+    margin-bottom: 23px;
 
-    margin-bottom: 25px;
 }
 
-.availability span {
+.status-pill i {
 
     width: 7px;
+
     height: 7px;
+
+    background: #28e018;
 
     border-radius: 50%;
 
-    background: #20c20e;
+    box-shadow: 0 0 12px #28e018;
 
-    box-shadow: 0 0 12px #20c20e;
 }
 
-.hero-intro {
+.kicker {
 
-    color: #e50914;
+    color: var(--red);
 
-    font-size: 12px;
+    font-size: 10px;
 
     font-weight: 800;
 
     letter-spacing: 6px;
 
-    margin-bottom: 15px;
+    margin-bottom: 14px;
+
 }
 
 .hero h1 {
 
-    font-family: "Bebas Neue";
+    font:
 
-    font-size: clamp(80px, 12vw, 175px);
+        clamp(78px, 10.8vw, 168px)
 
-    line-height: 0.76;
+        /.72
 
-    letter-spacing: 4px;
+        "Bebas Neue";
+
+    letter-spacing: 3px;
+
 }
 
 .hero h1 span {
 
     display: block;
+
 }
 
-.outline {
+.stroke {
 
     color: transparent;
 
-    -webkit-text-stroke: 2px #fff;
+    -webkit-text-stroke: 1.5px white;
+
 }
 
 .red {
 
-    color: #e50914;
+    color: var(--red);
 
     text-shadow:
-        6px 6px 0 #111,
-        10px 10px 30px rgba(229,9,20,0.35);
+
+        8px 8px 0 #111,
+
+        0 0 35px #e5091430;
+
 }
 
-.white {
+.solid {
 
-    color: #fff;
+    color: white;
+
 }
 
-.hero h2 {
-
-    margin-top: 35px;
-
-    font-size: 15px;
-
-    letter-spacing: 4px;
-
-    color: #ddd;
-}
-
-.hero-description {
-
-    max-width: 600px;
-
-    margin-top: 20px;
-
-    color: #888;
-
-    line-height: 1.8;
-
-    font-size: 14px;
-}
-
-
-/* ================= BUTTONS ================= */
-
-.hero-buttons {
+.hero-role {
 
     display: flex;
 
-    gap: 15px;
+    gap: 12px;
 
-    margin-top: 35px;
+    align-items: center;
+
+    margin-top: 34px;
+
+    color: #c6cad1;
+
+    font-size: 10px;
+
+    letter-spacing: 3px;
+
+    font-weight: 800;
+
+}
+
+.hero-role b {
+
+    color: var(--red);
+
+}
+
+.hero-text {
+
+    max-width: 600px;
+
+    color: #777f8b;
+
+    line-height: 1.8;
+
+    font-size: 13px;
+
+    margin-top: 20px;
+
+}
+
+.hero-actions {
+
+    display: flex;
+
+    gap: 12px;
+
+    margin-top: 32px;
+
 }
 
 .btn {
 
-    padding: 16px 25px;
+    display: inline-block;
 
     text-decoration: none;
 
-    font-size: 10px;
-
-    font-weight: 800;
-
-    letter-spacing: 2px;
-
-    transition: 0.3s;
-}
-
-.primary {
-
-    background: #e50914;
-
-    color: white;
-}
-
-.primary:hover {
-
-    transform: translateY(-5px);
-
-    box-shadow:
-        0 15px 40px rgba(229,9,20,0.35);
-}
-
-.secondary {
-
-    border: 1px solid #333;
-
-    color: white;
-}
-
-.secondary:hover {
-
-    border-color: #e50914;
-
-    color: #e50914;
-}
-
-
-/* ================= SOCIAL LINKS ================= */
-
-.social-links {
-
-    display: flex;
-
-    gap: 25px;
-
-    margin-top: 45px;
-}
-
-.social-links a {
-
-    color: #555;
-
-    text-decoration: none;
+    padding: 15px 21px;
 
     font-size: 9px;
 
@@ -419,180 +493,286 @@ nav a:hover {
 
     letter-spacing: 2px;
 
-    transition: 0.3s;
+    transition: .3s;
+
 }
 
-.social-links a:hover {
-    color: #e50914;
+.btn-red {
+
+    background: var(--red);
+
+}
+
+.btn-red:hover {
+
+    transform: translateY(-4px);
+
+    box-shadow: 0 18px 40px #e5091440;
+
+}
+
+.btn-outline {
+
+    border: 1px solid #303640;
+
+}
+
+.btn-outline:hover {
+
+    border-color: var(--red);
+
+    color: var(--red);
+
+}
+
+.socials {
+
+    display: flex;
+
+    gap: 24px;
+
+    margin-top: 35px;
+
+}
+
+.socials a {
+
+    font-size: 8px;
+
+    text-decoration: none;
+
+    color: #4d545f;
+
+    letter-spacing: 2px;
+
+    font-weight: 800;
+
+}
+
+.socials a:hover {
+
+    color: var(--red);
+
 }
 
 
-/* ================= HERO SPIDER ================= */
+/* 3D AREA */
 
-.hero-visual {
+.hero-stage {
 
     position: absolute;
 
-    right: 5%;
+    right: 1%;
+
+    top: 8%;
+
+    width: 55%;
+
+    height: 90%;
+
+    min-height: 650px;
+
+    z-index: 2;
+
+}
+
+.stage-glow {
+
+    position: absolute;
+
+    width: 440px;
+
+    height: 440px;
+
+    border-radius: 50%;
+
+    right: 14%;
 
     top: 15%;
 
-    width: 400px;
-
-    height: 600px;
-}
-
-.spider-symbol {
-
-    position: absolute;
-
-    top: 120px;
-
-    left: 50%;
-
-    transform: translateX(-50%);
-
-    font-size: 190px;
-
-    filter:
-        drop-shadow(
-            0 0 35px
-            rgba(229,9,20,0.5)
-        );
-
-    animation: spiderFloat 5s ease-in-out infinite;
-}
-
-.vertical-line {
-
-    position: absolute;
-
-    width: 1px;
-
-    height: 180px;
-
-    top: 0;
-
-    left: 50%;
-
     background:
-        linear-gradient(
-            white,
-            transparent
+
+        radial-gradient(
+            circle,
+            #e5091420,
+            transparent 65%
         );
+
+    filter: blur(5px);
+
 }
 
-.hero-label {
+#three-hero {
 
     position: absolute;
 
-    bottom: 60px;
+    inset: 0;
 
-    right: 0;
+    z-index: 4;
+
+}
+
+.target-ring {
+
+    position: absolute;
+
+    right: 17%;
+
+    top: 27%;
+
+    border: 1px solid #fff2;
+
+    border-radius: 50%;
+
+    pointer-events: none;
+
+}
+
+.ring-a {
+
+    width: 380px;
+
+    height: 380px;
+
+}
+
+.ring-b {
+
+    width: 470px;
+
+    height: 470px;
+
+    right: 10%;
+
+    top: 20%;
+
+    border-color: #e5091418;
+
+}
+
+.stage-label {
+
+    position: absolute;
+
+    z-index: 6;
 
     display: flex;
 
     flex-direction: column;
 
-    gap: 8px;
+    gap: 5px;
 
-    font-size: 9px;
+    color: #59606b;
+
+    font-size: 8px;
+
+    letter-spacing: 2px;
+
+}
+
+.stage-label strong {
+
+    color: #dfe4ea;
+
+}
+
+.stage-label.top {
+
+    top: 24%;
+
+    right: 5%;
+
+}
+
+.stage-label.bottom {
+
+    bottom: 20%;
+
+    left: 13%;
+
+}
+
+.scroll-cue {
+
+    position: absolute;
+
+    bottom: 25px;
+
+    left: 7%;
+
+    font-size: 8px;
 
     letter-spacing: 3px;
 
-    color: #555;
+    color: #444;
 
-    text-align: right;
+    z-index: 5;
+
 }
 
-.hero-label span:first-child {
-    color: #e50914;
-}
+.scroll-cue span {
 
-@keyframes spiderFloat {
+    color: var(--red);
 
-    0%,100% {
-        transform:
-            translateX(-50%)
-            translateY(0)
-            rotate(-3deg);
-    }
+    font-size: 18px;
 
-    50% {
-        transform:
-            translateX(-50%)
-            translateY(30px)
-            rotate(3deg);
-    }
+    margin-left: 10px;
+
 }
 
 
-/* ================= SECTIONS ================= */
+/* SECTIONS */
 
 .section {
 
-    padding: 130px 8%;
+    padding: 130px 7%;
 
-    border-top: 1px solid #181818;
+    border-top: 1px solid #171b22;
 
     position: relative;
 
-    z-index: 2;
+    overflow: hidden;
+
 }
 
-.section-header {
+.section-top {
 
     display: flex;
 
+    gap: 14px;
+
     align-items: center;
 
-    gap: 15px;
-
     margin-bottom: 45px;
+
 }
 
-.section-number {
+.num {
 
-    color: #e50914;
-
-    font-size: 12px;
-
-    font-weight: 800;
-
-    letter-spacing: 3px;
-}
-
-.section-tag {
+    color: var(--red);
 
     font-size: 10px;
 
     font-weight: 800;
 
-    letter-spacing: 4px;
-
-    color: #555;
-}
-
-.big-heading {
-
-    font-family: "Bebas Neue";
-
-    font-size: clamp(65px, 10vw, 140px);
-
-    line-height: 0.85;
-
     letter-spacing: 3px;
 
-    margin-bottom: 70px;
 }
 
-.big-heading span {
+.tag {
 
-    color: #e50914;
+    color: #555d68;
+
+    font-size: 9px;
+
+    font-weight: 800;
+
+    letter-spacing: 4px;
+
 }
 
 
-/* ================= ABOUT ================= */
+/* ABOUT */
 
 .about-grid {
 
@@ -603,143 +783,352 @@ nav a:hover {
     gap: 100px;
 
     align-items: center;
+
 }
 
 .about-grid h2 {
 
-    font-family: "Bebas Neue";
+    font:
 
-    font-size: clamp(60px, 8vw, 120px);
+        clamp(65px, 8vw, 125px)
 
-    line-height: 0.85;
-}
+        /.78
 
-.about-grid h2 span {
-    color: #e50914;
-}
-
-.about-text {
-
-    color: #888;
-
-    line-height: 1.9;
-
-    font-size: 15px;
-}
-
-.about-text p {
-    margin-bottom: 25px;
-}
-
-
-/* ================= SKILLS ================= */
-
-.skills-grid {
-
-    display: grid;
-
-    grid-template-columns:
-        repeat(3, 1fr);
-
-    gap: 20px;
-}
-
-.skill-category {
-
-    padding: 35px;
-
-    border: 1px solid #222;
-
-    background: #090909;
-
-    min-height: 330px;
-
-    transition: 0.4s;
-}
-
-.skill-category:hover {
-
-    transform: translateY(-8px);
-
-    border-color: #e50914;
-}
-
-.skill-icon {
-
-    color: #e50914;
-
-    font-size: 30px;
-
-    margin-bottom: 30px;
-}
-
-.skill-category h3 {
-
-    font-family: "Bebas Neue";
-
-    font-size: 32px;
+        "Bebas Neue";
 
     letter-spacing: 2px;
 
+}
+
+.about-grid h2 span {
+
+    color: var(--red);
+
+}
+
+.copy {
+
+    max-width: 620px;
+
+    color: #7d8590;
+
+    font-size: 14px;
+
+    line-height: 1.9;
+
+}
+
+.copy p {
+
     margin-bottom: 25px;
+
 }
 
-.skill-list {
+.comic-stamp {
 
-    display: flex;
+    display: inline-block;
 
-    flex-wrap: wrap;
+    border: 2px solid var(--red);
 
-    gap: 8px;
+    color: var(--red);
+
+    padding: 10px 13px;
+
+    margin-top: 35px;
+
+    font:
+
+        14px/1.05
+
+        "Bebas Neue";
+
+    letter-spacing: 2px;
+
+    transform: rotate(-5deg);
+
 }
 
-.skill-list span {
 
-    padding: 8px 11px;
+/* SKILLS */
 
-    background: #151515;
+.mega {
 
-    color: #aaa;
+    font:
 
-    font-size: 10px;
+        clamp(68px, 10vw, 145px)
 
-    font-weight: 700;
+        /.78
+
+        "Bebas Neue";
+
+    letter-spacing: 3px;
+
+    margin-bottom: 55px;
+
 }
 
+.mega span {
 
-/* ================= PROJECTS ================= */
+    color: var(--red);
 
-.projects-grid {
-
-    display: grid;
-
-    grid-template-columns:
-        repeat(2, 1fr);
-
-    gap: 20px;
 }
 
-.project-card {
+.skill-web {
 
-    min-height: 510px;
+    height: 480px;
 
-    padding: 35px;
+    max-width: 1000px;
+
+    margin: 0 auto 80px;
 
     position: relative;
 
-    border: 1px solid #222;
+    border: 1px solid #171c25;
+
+    border-radius: 50%;
+
+    background:
+
+        radial-gradient(
+            circle,
+            #0d142020,
+            transparent 60%
+        );
+
+}
+
+.skill-web::before,
+.skill-web::after {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 8%;
+
+    border: 1px solid #fff1;
+
+    border-radius: 50%;
+
+}
+
+.skill-web::after {
+
+    inset: 20%;
+
+    transform: rotate(-35deg);
+
+}
+
+.skill-node {
+
+    position: absolute;
+
+    z-index: 2;
+
+    padding: 12px 15px;
+
+    border: 1px solid #333b46;
+
+    background: #07090c;
+
+    box-shadow: 0 0 25px #000;
+
+    color: #aeb5be;
+
+    font-size: 9px;
+
+    font-weight: 800;
+
+    letter-spacing: 1px;
+
+    text-align: center;
+
+    transition: .3s;
+
+}
+
+.skill-node:hover {
+
+    color: white;
+
+    border-color: var(--red);
+
+    box-shadow: 0 0 25px #e5091430;
+
+    transform: scale(1.1);
+
+}
+
+.center {
+
+    left: 50%;
+
+    top: 50%;
+
+    transform: translate(-50%, -50%);
+
+    border-color: var(--red);
+
+    color: var(--red);
+
+    padding: 22px;
+
+    border-radius: 50%;
+
+}
+
+.n1 {
+    left: 8%;
+    top: 17%;
+}
+
+.n2 {
+    right: 8%;
+    top: 17%;
+}
+
+.n3 {
+    left: 2%;
+    top: 50%;
+}
+
+.n4 {
+    right: 2%;
+    top: 50%;
+}
+
+.n5 {
+    left: 17%;
+    bottom: 10%;
+}
+
+.n6 {
+    right: 17%;
+    bottom: 10%;
+}
+
+.n7 {
+    left: 44%;
+    top: 4%;
+}
+
+.n8 {
+    right: 40%;
+    bottom: 3%;
+}
+
+
+/* SKILL CARDS */
+
+.skill-grid {
+
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 18px;
+
+}
+
+.skill-grid article {
+
+    min-height: 260px;
+
+    padding: 30px;
+
+    border: 1px solid #1c222b;
+
+    background: #080a0e;
+
+    transition: .35s;
+
+}
+
+.skill-grid article:hover {
+
+    transform: translateY(-8px);
+
+    border-color: #e5091460;
+
+}
+
+.icon {
+
+    font-size: 28px;
+
+    color: var(--red);
+
+}
+
+.skill-grid h3 {
+
+    font:
+
+        32px
+
+        "Bebas Neue";
+
+    margin: 25px 0 18px;
+
+}
+
+.skill-grid p {
+
+    color: #737b86;
+
+    line-height: 1.8;
+
+    font-size: 12px;
+
+}
+
+
+/* PROJECTS */
+
+.projects-section {
 
     background:
 
         linear-gradient(
-            135deg,
-            #111,
-            #070707
+            #050608,
+            #06080b
         );
+
+}
+
+.project-grid {
+
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 18px;
+
+}
+
+.project-card {
+
+    min-height: 500px;
+
+    padding: 30px;
+
+    position: relative;
 
     overflow: hidden;
 
-    transition: 0.4s;
+    border: 1px solid #1c222b;
+
+    background:
+
+        linear-gradient(
+            145deg,
+            #0d1015,
+            #060709
+        );
+
+    transition: .35s;
+
 }
 
 .project-card::before {
@@ -748,107 +1137,213 @@ nav a:hover {
 
     position: absolute;
 
-    width: 250px;
-    height: 250px;
+    right: -130px;
 
-    right: -120px;
-    bottom: -120px;
+    bottom: -130px;
+
+    width: 330px;
+
+    height: 330px;
+
+    border: 1px solid #e5091420;
 
     border-radius: 50%;
 
-    border: 1px solid rgba(229,9,20,0.25);
-
     box-shadow:
-        0 0 0 30px rgba(229,9,20,0.03),
-        0 0 0 60px rgba(229,9,20,0.03),
-        0 0 0 90px rgba(229,9,20,0.03);
+
+        0 0 0 35px #e5091408,
+
+        0 0 0 70px #e5091405,
+
+        0 0 0 105px #e5091403;
+
 }
 
 .project-card:hover {
 
-    transform: translateY(-8px);
+    transform:
 
-    border-color: #e50914;
+        translateY(-8px)
 
-    box-shadow:
-        0 25px 60px
-        rgba(229,9,20,0.12);
+        rotateX(1deg);
+
+    border-color: #e5091470;
+
+    box-shadow: 0 25px 70px #000;
+
 }
 
-.project-top {
+.project-card.featured {
 
-    display: flex;
+    border-color: #e5091438;
 
-    justify-content: space-between;
+}
 
-    color: #e50914;
+.project-card.wide {
 
-    font-size: 9px;
+    grid-column: 1 / -1;
+
+    min-height: 360px;
+
+}
+
+.project-index {
+
+    position: absolute;
+
+    right: 25px;
+
+    top: 20px;
+
+    color: #313944;
+
+    font:
+
+        65px
+
+        "Bebas Neue";
+
+}
+
+.project-meta {
+
+    color: var(--red);
+
+    font-size: 8px;
 
     font-weight: 800;
 
     letter-spacing: 2px;
+
 }
 
 .project-card h3 {
 
-    font-family: "Bebas Neue";
+    position: relative;
 
-    font-size: 52px;
+    font:
 
-    line-height: 0.9;
+        55px/.88
+
+        "Bebas Neue";
 
     letter-spacing: 2px;
 
-    margin: 65px 0 25px;
+    margin: 55px 0 25px;
+
 }
 
 .project-card p {
 
-    color: #777;
+    position: relative;
+
+    color: #747c87;
 
     font-size: 12px;
 
-    line-height: 1.7;
+    line-height: 1.75;
 
-    max-width: 550px;
+    max-width: 640px;
 
-    margin-bottom: 15px;
+    margin-bottom: 12px;
+
 }
 
-.tech-stack {
+.chips {
 
     display: flex;
 
     flex-wrap: wrap;
 
-    gap: 8px;
+    gap: 7px;
 
     margin-top: 25px;
+
 }
 
-.tech-stack span {
+.chips span {
 
-    border: 1px solid #292929;
+    padding: 7px 9px;
 
-    padding: 7px 10px;
+    border: 1px solid #252b34;
 
-    font-size: 9px;
+    color: #8a929d;
 
-    color: #aaa;
+    font-size: 8px;
+
 }
 
-.project-link {
+.project-card > a,
+.muted-link {
 
     position: absolute;
 
-    bottom: 30px;
+    right: 25px;
 
-    right: 30px;
+    bottom: 25px;
 
     text-decoration: none;
 
+    font-size: 8px;
+
+    font-weight: 800;
+
+    letter-spacing: 2px;
+
     color: white;
+
+}
+
+.project-card > a:hover {
+
+    color: var(--red);
+
+}
+
+.muted-link {
+
+    color: #4d545e;
+
+}
+
+
+/* EDUCATION */
+
+.edu-list {
+
+    border-top: 1px solid #20252d;
+
+}
+
+.edu-list article {
+
+    display: grid;
+
+    grid-template-columns: 180px 1fr 100px;
+
+    gap: 30px;
+
+    align-items: center;
+
+    padding: 30px 0;
+
+    border-bottom: 1px solid #20252d;
+
+    transition: .3s;
+
+}
+
+.edu-list article:hover {
+
+    padding-left: 12px;
+
+    border-color: #e5091460;
+
+}
+
+.year {
+
+    color: var(--red);
 
     font-size: 9px;
 
@@ -856,195 +1351,137 @@ nav a:hover {
 
     letter-spacing: 2px;
 
-    z-index: 2;
 }
 
-.project-link:hover {
-    color: #e50914;
+.edu-list h3 {
+
+    font-size: 14px;
+
+    margin-bottom: 7px;
+
 }
 
-.project-link.disabled {
-    color: #555;
+.edu-list p {
 
-    cursor: default;
+    color: #727a85;
+
+    font-size: 11px;
+
 }
 
+.edu-list strong {
 
-/* ================= EDUCATION ================= */
+    font:
 
-.education-list {
+        32px
 
-    border-top: 1px solid #222;
-}
-
-.education-card {
-
-    display: grid;
-
-    grid-template-columns:
-        180px 1fr 100px;
-
-    gap: 30px;
-
-    padding: 30px 0;
-
-    border-bottom: 1px solid #222;
-
-    align-items: center;
-
-    transition: 0.3s;
-}
-
-.education-card:hover {
-
-    padding-left: 15px;
-
-    border-color: #e50914;
-}
-
-.education-year {
-
-    color: #e50914;
-
-    font-size: 10px;
-
-    font-weight: 800;
-
-    letter-spacing: 2px;
-}
-
-.education-content h3 {
-
-    font-size: 15px;
-
-    margin-bottom: 8px;
-}
-
-.education-content p {
-
-    color: #777;
-
-    font-size: 12px;
-}
-
-.score {
-
-    color: white;
-
-    font-family: "Bebas Neue";
-
-    font-size: 30px;
+        "Bebas Neue";
 
     text-align: right;
+
 }
 
 
-/* ================= ADDITIONAL ================= */
+/* EXTRAS */
 
-.additional-grid {
+.extras {
 
     display: grid;
 
     grid-template-columns: 1fr 1fr;
 
     gap: 100px;
+
 }
 
-.additional-grid h2 {
+.extra-card {
 
-    font-family: "Bebas Neue";
+    padding: 35px;
 
-    font-size: 55px;
+    border: 1px solid #1b2028;
+
+    background: #080a0d;
+
+}
+
+.extra-card h3 {
+
+    font:
+
+        48px
+
+        "Bebas Neue";
 
     margin: 25px 0;
+
 }
 
-.additional-grid p {
+.extra-card p {
 
-    color: #888;
+    color: #777f8b;
 
-    margin-bottom: 12px;
+    font-size: 12px;
 
-    font-size: 13px;
-}
+    margin-bottom: 10px;
 
-.interest-tags {
-
-    display: flex;
-
-    flex-wrap: wrap;
-
-    gap: 10px;
-}
-
-.interest-tags span {
-
-    padding: 12px 16px;
-
-    border: 1px solid #282828;
-
-    color: #888;
-
-    font-size: 10px;
 }
 
 
-/* ================= CONTACT ================= */
+/* CONTACT */
 
-.contact-section {
+.contact {
 
     min-height: 90vh;
 
     display: flex;
 
-    align-items: center;
+    flex-direction: column;
+
+    justify-content: center;
 
     background:
 
         radial-gradient(
-            circle at 70% 50%,
-            rgba(229,9,20,0.1),
+            circle at 75% 50%,
+            #e5091410,
             transparent 35%
         );
+
 }
 
-.contact-content {
+.contact h2 {
 
-    max-width: 900px;
+    font:
+
+        clamp(80px, 11vw, 160px)
+
+        /.76
+
+        "Bebas Neue";
+
+    margin: 35px 0;
+
 }
 
-.contact-content .section-tag {
+.contact h2 span {
 
-    display: block;
+    color: var(--red);
 
-    margin: 15px 0 40px;
 }
 
-.contact-content h2 {
+.contact > p {
 
-    font-family: "Bebas Neue";
+    color: #737b86;
 
-    font-size: clamp(70px, 11vw, 160px);
-
-    line-height: 0.78;
-
-    margin-bottom: 40px;
-}
-
-.contact-content h2 span {
-    color: #e50914;
-}
-
-.contact-content > p:not(.section-tag) {
-
-    color: #777;
-
-    max-width: 550px;
+    max-width: 520px;
 
     line-height: 1.8;
+
+    font-size: 13px;
+
 }
 
-.contact-email {
+.email {
 
     display: inline-block;
 
@@ -1054,71 +1491,168 @@ nav a:hover {
 
     text-decoration: none;
 
-    font-size: clamp(14px,2vw,20px);
-
     font-weight: 800;
 
     letter-spacing: 2px;
 
-    border-bottom: 2px solid #e50914;
+    font-size: clamp(14px, 2vw, 20px);
 
-    padding-bottom: 8px;
+    border-bottom: 2px solid var(--red);
+
+    padding-bottom: 9px;
+
 }
 
-.contact-email:hover {
-    color: #e50914;
+.email:hover {
+
+    color: var(--red);
+
 }
 
-.contact-socials {
+.contact-links {
 
     display: flex;
 
     gap: 25px;
 
-    margin-top: 40px;
+    margin-top: 35px;
+
 }
 
-.contact-socials a {
-
-    color: #555;
+.contact-links a {
 
     text-decoration: none;
 
-    font-size: 10px;
+    color: #555e69;
+
+    font-size: 9px;
 
     font-weight: 800;
 
     letter-spacing: 2px;
+
 }
 
-.contact-socials a:hover {
-    color: #e50914;
+.contact-links a:hover {
+
+    color: var(--red);
+
 }
 
 
-/* ================= FOOTER ================= */
+/* FOOTER */
 
 footer {
 
-    padding: 30px 8%;
-
-    border-top: 1px solid #181818;
+    padding: 28px 7%;
 
     display: flex;
 
     justify-content: space-between;
 
-    color: #444;
+    border-top: 1px solid #171b22;
 
-    font-size: 9px;
+    color: #3e454f;
+
+    font-size: 8px;
 
     letter-spacing: 2px;
+
 }
 
 
-/* ================= RESPONSIVE ================= */
+/* CURSOR */
 
-@media (max-width: 900px) {
+.cursor-dot,
+.cursor-ring {
+
+    position: fixed;
+
+    pointer-events: none;
+
+    z-index: 10000;
+
+}
+
+.cursor-dot {
+
+    width: 5px;
+
+    height: 5px;
+
+    border-radius: 50%;
+
+    background: var(--red);
+
+    transform: translate(-50%, -50%);
+
+    box-shadow: 0 0 15px var(--red);
+
+}
+
+.cursor-ring {
+
+    width: 30px;
+
+    height: 30px;
+
+    border: 1px solid #fff5;
+
+    border-radius: 50%;
+
+    transform: translate(-50%, -50%);
+
+    transition:
+
+        width .2s,
+
+        height .2s,
+
+        border-color .2s;
+
+}
+
+.cursor-ring.active {
+
+    width: 50px;
+
+    height: 50px;
+
+    border-color: #e5091499;
+
+}
+
+
+/* RESPONSIVE */
+
+@media(max-width:1000px) {
+
+    .hero-copy {
+        width: 70%;
+    }
+
+    .hero-stage {
+        opacity: .65;
+        width: 60%;
+    }
+
+    .skill-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .about-grid,
+    .extras {
+
+        grid-template-columns: 1fr;
+
+        gap: 50px;
+
+    }
+
+}
+
+
+@media(max-width:800px) {
 
     nav {
 
@@ -1126,21 +1660,20 @@ footer {
 
         position: absolute;
 
-        top: 80px;
+        top: 78px;
 
         left: 0;
 
-        width: 100%;
+        right: 0;
+
+        background: #06080b;
 
         padding: 25px;
 
-        background: #080808;
-
         flex-direction: column;
 
-        gap: 20px;
-
         border-bottom: 1px solid #222;
+
     }
 
     nav.active {
@@ -1151,75 +1684,129 @@ footer {
         display: block;
     }
 
-    .hero-visual {
-        opacity: 0.15;
-
-        right: -100px;
+    .hud {
+        display: none;
     }
-
-    .about-grid,
-    .skills-grid,
-    .additional-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .projects-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .education-card {
-        grid-template-columns: 1fr;
-        gap: 10px;
-    }
-
-    .score {
-        text-align: left;
-    }
-
-    footer {
-        flex-direction: column;
-
-        gap: 12px;
-    }
-}
-
-
-@media (max-width: 600px) {
 
     .hero {
-        padding: 130px 6% 70px;
+        padding: 125px 6% 70px;
     }
 
-    .section {
-        padding: 90px 6%;
+    .hero-copy {
+        width: 100%;
+    }
+
+    .hero-stage {
+
+        position: absolute;
+
+        inset: auto -20% 0 auto;
+
+        width: 100%;
+
+        height: 80%;
+
+        opacity: .25;
+
     }
 
     .hero h1 {
-        font-size: 75px;
+        font-size: 76px;
     }
 
-    .hero h2 {
-        font-size: 11px;
-
-        line-height: 1.6;
+    .hero-role {
+        flex-wrap: wrap;
+        line-height: 1.8;
     }
 
-    .hero-buttons {
+    .section {
+        padding: 95px 6%;
+    }
+
+    .project-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .project-card.wide {
+        grid-column: auto;
+    }
+
+    .edu-list article {
+
+        grid-template-columns: 1fr;
+
+        gap: 10px;
+
+    }
+
+    .edu-list strong {
+        text-align: left;
+    }
+
+    .extras {
+        gap: 18px;
+    }
+
+    .skill-web {
+
+        height: 390px;
+
+        transform: scale(.8);
+
+        width: 125%;
+
+        margin-left: -12%;
+
+    }
+
+    .cursor-dot,
+    .cursor-ring {
+        display: none;
+    }
+
+    footer {
+
+        flex-direction: column;
+
+        gap: 12px;
+
+    }
+
+}
+
+
+@media(max-width:520px) {
+
+    .hero h1 {
+        font-size: 65px;
+    }
+
+    .hero-actions {
+
         flex-direction: column;
 
         max-width: 280px;
-    }
 
-    .social-links {
-        flex-wrap: wrap;
-    }
-
-    .project-card {
-        min-height: 550px;
     }
 
     .project-card h3 {
-        font-size: 42px;
+        font-size: 45px;
+    }
+
+    .mega {
+        font-size: 72px;
+    }
+
+    .skill-web {
+        display: none;
+    }
+
+    .skill-grid {
+        margin-top: 20px;
+    }
+
+    .stage-label {
+        display: none;
     }
 
 }
