@@ -5,12 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>SHREYASH // WEB-SLINGER DEVELOPER</title>
+    <title>SHREYASH KRISHNA GUPTA | Portfolio</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700;800&display=swap"
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700;800;900&display=swap"
         rel="stylesheet">
 
     <link rel="stylesheet" href="style.css">
@@ -19,127 +19,188 @@
 <body>
 
     <!-- LOADER -->
-    <div id="loader">
+    <div class="loader" id="loader">
+
         <div class="loader-web"></div>
-        <div class="loader-spider">🕷</div>
-        <p>CONNECTING TO THE WEB...</p>
+
+        <div class="loader-content">
+            <div class="loader-spider">🕷</div>
+            <div class="loader-title">SHREYASH</div>
+            <div class="loader-line"></div>
+            <div class="loader-text">INITIALIZING WEB...</div>
+        </div>
+
     </div>
 
-    <div class="noise"></div>
 
-    <!-- CUSTOM CURSOR -->
-    <div class="cursor-dot"></div>
-    <div class="cursor-ring"></div>
+    <!-- BACKGROUND -->
+    <div class="noise"></div>
+    <div class="red-light"></div>
+    <div class="blue-light"></div>
+
 
     <!-- NAVBAR -->
     <header class="navbar">
 
         <a href="#home" class="logo">
-            <span>◉</span> SHREYASH
+            <span>✦</span>
+            SHREYASH
         </a>
 
-        <nav id="navMenu">
+        <nav id="nav">
+
             <a href="#home">HOME</a>
-            <a href="#about">ORIGIN</a>
-            <a href="#skills">SPIDER SENSE</a>
-            <a href="#projects">MISSIONS</a>
-            <a href="#education">TRAINING</a>
+            <a href="#about">ABOUT</a>
+            <a href="#skills">SKILLS</a>
+            <a href="#projects">PROJECTS</a>
+            <a href="#education">EDUCATION</a>
             <a href="#contact">CONTACT</a>
+
         </nav>
 
-        <button class="menu-btn" id="menuBtn">
+        <button class="menu" id="menu">
             ☰
         </button>
 
     </header>
 
-    <!-- HUD -->
-    <div class="hud hud-left">
-        <span>SYS // 01</span>
-        <span>WEB-LINK: ONLINE</span>
+
+    <!-- SIDE HUD -->
+
+    <div class="hud left-hud">
+        <span>SHREYASH // 001</span>
+        <span>ECE ENGINEER</span>
+        <span>WEB SYSTEM: ONLINE</span>
     </div>
 
-    <div class="hud hud-right">
-        <span>ECE // 2023—PRESENT</span>
-        <span>IND // KANPUR</span>
+    <div class="hud right-hud">
+        <span>INDIA // KANPUR</span>
+        <span>STATUS: ACTIVE</span>
     </div>
 
 
     <main>
 
-        <!-- ================= HERO ================= -->
 
-        <section id="home" class="hero">
+        <!-- =================================
+             HERO
+        ================================== -->
 
-            <div class="hero-copy">
+        <section class="hero" id="home">
 
-                <div class="status-pill">
-                    <i></i>
+
+            <!-- WEB GRAPHICS -->
+
+            <div class="web-background">
+
+                <div class="web-circle circle1"></div>
+                <div class="web-circle circle2"></div>
+                <div class="web-circle circle3"></div>
+
+                <div class="web-line line1"></div>
+                <div class="web-line line2"></div>
+                <div class="web-line line3"></div>
+                <div class="web-line line4"></div>
+                <div class="web-line line5"></div>
+                <div class="web-line line6"></div>
+
+            </div>
+
+
+            <!-- PARTICLES -->
+
+            <div class="particles">
+
+                <i></i>
+                <i></i>
+                <i></i>
+                <i></i>
+                <i></i>
+                <i></i>
+                <i></i>
+                <i></i>
+                <i></i>
+                <i></i>
+                <i></i>
+                <i></i>
+                <i></i>
+                <i></i>
+                <i></i>
+
+            </div>
+
+
+            <!-- LEFT CONTENT -->
+
+            <div class="hero-content">
+
+                <div class="availability">
+                    <span></span>
                     AVAILABLE FOR OPPORTUNITIES
                 </div>
 
-                <p class="kicker">
-                    THE FRIENDLY NEIGHBORHOOD
-                </p>
+                <div class="small-title">
+                    THE FRIENDLY NEIGHBORHOOD DEVELOPER
+                </div>
 
                 <h1>
 
-                    <span class="stroke">
+                    <span class="outline">
                         SHREYASH
                     </span>
 
-                    <span class="red">
+                    <span class="red-text">
                         KRISHNA
                     </span>
 
-                    <span class="solid">
+                    <span>
                         GUPTA
                     </span>
 
                 </h1>
 
-                <div class="hero-role">
 
-                    <span>ECE STUDENT</span>
+                <div class="role">
 
+                    <span>ELECTRONICS ENGINEER</span>
                     <b>×</b>
-
                     <span>DEVELOPER</span>
-
                     <b>×</b>
-
-                    <span>PROBLEM SOLVER</span>
+                    <span>BUILDER</span>
 
                 </div>
 
-                <p class="hero-text">
 
-                    Electronics, embedded systems and modern web development —
-                    building practical digital experiences with a little extra
-                    web-slinging energy.
+                <p class="hero-description">
+
+                    Electronics & Communication Engineering student
+                    building software, embedded systems and practical
+                    technology — one project at a time.
 
                 </p>
 
-                <div class="hero-actions">
 
-                    <a href="#projects" class="btn btn-red">
-                        ENTER THE WEB ↗
+                <div class="buttons">
+
+                    <a href="#projects" class="primary-btn">
+                        EXPLORE MY WORK ↗
                     </a>
 
-                    <a href="resume.pdf" download class="btn btn-outline">
-                        DOWNLOAD RESUME ↓
+                    <a href="resume.pdf" download class="secondary-btn">
+                        RESUME ↓
                     </a>
 
                 </div>
 
-                <div class="socials">
 
-                    <a href="https://linkedin.com/" target="_blank">
-                        LINKEDIN ↗
-                    </a>
+                <div class="social-links">
 
                     <a href="https://github.com/" target="_blank">
                         GITHUB ↗
+                    </a>
+
+                    <a href="https://linkedin.com/" target="_blank">
+                        LINKEDIN ↗
                     </a>
 
                     <a href="mailto:2K23.ece2311352@gmail.com">
@@ -151,37 +212,86 @@
             </div>
 
 
-            <!-- 3D HERO -->
+            <!-- SPIDER-MAN -->
 
-            <div class="hero-stage">
+            <div class="spiderman-area">
 
-                <div class="stage-glow"></div>
 
-                <div id="three-hero"></div>
+                <!-- Glow behind Spider-Man -->
 
-                <div class="target-ring ring-a"></div>
-                <div class="target-ring ring-b"></div>
+                <div class="spider-glow"></div>
 
-                <div class="stage-label top">
 
-                    <span>3D WEB UNIT</span>
-                    <strong>ACTIVE</strong>
+                <!-- Comic burst -->
+
+                <div class="comic-burst">
+
+                    <span>BUILD!</span>
+                    <span>CODE!</span>
+                    <span>CREATE!</span>
+
+                </div>
+
+
+                <!-- Spider-Man -->
+
+                <div class="spiderman-wrapper">
+
+                    <div class="spiderman-shadow"></div>
+
+                    <img
+                        src="spiderman.png"
+                        alt="Spider-Man"
+                        class="spiderman"
+                    >
 
                 </div>
 
-                <div class="stage-label bottom">
 
-                    <span>MOVE CURSOR</span>
-                    <strong>CONTROL FIELD</strong>
+                <!-- Spider web around him -->
+
+                <div class="web-target">
+
+                    <div></div>
+                    <div></div>
+                    <div></div>
 
                 </div>
+
+
+                <!-- Floating labels -->
+
+                <div class="floating-label label1">
+                    <span>01</span>
+                    WEB DEVELOPMENT
+                </div>
+
+                <div class="floating-label label2">
+                    <span>02</span>
+                    EMBEDDED SYSTEMS
+                </div>
+
+                <div class="floating-label label3">
+                    <span>03</span>
+                    IoT / HARDWARE
+                </div>
+
+
+                <!-- Web shooting line -->
+
+                <div class="web-shoot">
+
+                    <span></span>
+
+                </div>
+
 
             </div>
 
 
-            <div class="scroll-cue">
+            <div class="scroll">
 
-                SCROLL TO EXPLORE
+                SCROLL TO ENTER THE WEB
 
                 <span>↓</span>
 
@@ -190,44 +300,31 @@
         </section>
 
 
-        <!-- ================= ABOUT ================= -->
+        <!-- =================================
+             ABOUT
+        ================================== -->
 
-        <section id="about" class="section">
+        <section class="section about" id="about">
 
-            <div class="section-top">
-
-                <span class="num">01</span>
-
-                <span class="tag">
-                    ORIGIN STORY
-                </span>
-
+            <div class="section-label">
+                01 / ORIGIN STORY
             </div>
-
 
             <div class="about-grid">
 
                 <div>
 
                     <h2>
-
                         WHO IS
-                        <br>
-
-                        <span>
-                            SHREYASH?
-                        </span>
-
+                        <span>SHREYASH?</span>
                     </h2>
 
-                    <div class="comic-stamp">
+                    <div class="stamp">
 
                         BUILD
                         <br>
-
                         BREAK
                         <br>
-
                         REBUILD
 
                     </div>
@@ -235,32 +332,26 @@
                 </div>
 
 
-                <div class="copy">
+                <div class="about-text">
 
                     <p>
-
                         Detail-oriented Electronics and Communication
                         Engineering undergraduate with a strong foundation
                         in hardware-software integration, circuit design,
                         microcontroller programming and web application
                         development.
-
                     </p>
 
                     <p>
-
                         Hands-on project experience in embedded systems,
                         IoT applications, aerial robotics concepts and
                         modern frontend frameworks.
-
                     </p>
 
                     <p>
-
                         Passionate about practical problem-solving,
-                        analytical thinking and turning technical ideas
+                        analytical thinking and transforming technical ideas
                         into useful electronic and software solutions.
-
                     </p>
 
                 </div>
@@ -270,96 +361,53 @@
         </section>
 
 
-        <!-- ================= SKILLS ================= -->
+        <!-- =================================
+             SKILLS
+        ================================== -->
 
-        <section id="skills" class="section skills-section">
+        <section class="section skills" id="skills">
 
-            <div class="section-top">
-
-                <span class="num">
-                    02
-                </span>
-
-                <span class="tag">
-                    SPIDER SENSE
-                </span>
-
+            <div class="section-label">
+                02 / SPIDER SENSE
             </div>
 
-
-            <h2 class="mega">
+            <h2 class="big-title">
 
                 TECHNICAL
-
-                <br>
-
-                <span>
-                    ARSENAL
-                </span>
+                <span>ARSENAL</span>
 
             </h2>
 
 
             <div class="skill-web">
 
-                <div class="skill-node center">
-                    SPIDER
-                    <br>
-                    SENSE
+                <div class="skill-center">
+                    SPIDER<br>SENSE
                 </div>
 
-                <div class="skill-node n1">
-                    PYTHON
-                </div>
-
-                <div class="skill-node n2">
-                    REACT.JS
-                </div>
-
-                <div class="skill-node n3">
-                    NEXT.JS
-                </div>
-
-                <div class="skill-node n4">
-                    ARDUINO
-                </div>
-
-                <div class="skill-node n5">
-                    IOT
-                </div>
-
-                <div class="skill-node n6">
-                    C/C++
-                </div>
-
-                <div class="skill-node n7">
-                    JAVASCRIPT
-                </div>
-
-                <div class="skill-node n8">
-                    CIRCUIT DESIGN
-                </div>
+                <div class="skill s1">PYTHON</div>
+                <div class="skill s2">REACT.JS</div>
+                <div class="skill s3">NEXT.JS</div>
+                <div class="skill s4">ARDUINO</div>
+                <div class="skill s5">IoT</div>
+                <div class="skill s6">C / C++</div>
+                <div class="skill s7">JAVASCRIPT</div>
+                <div class="skill s8">CIRCUIT DESIGN</div>
 
             </div>
 
 
-            <div class="skill-grid">
+            <div class="skill-cards">
 
                 <article>
 
-                    <span class="icon">
-                        &lt;/&gt;
-                    </span>
+                    <div class="skill-icon">&lt;/&gt;</div>
 
-                    <h3>
-                        PROGRAMMING
-                    </h3>
+                    <h3>PROGRAMMING</h3>
 
                     <p>
-
-                        Python · Embedded C/C++ · Arduino · HTML · CSS
-                        · JavaScript · React.js · Next.js
-
+                        Python, Embedded C/C++, Arduino, HTML, CSS,
+                        JavaScript, React.js and Next.js.
                     </p>
 
                 </article>
@@ -367,19 +415,13 @@
 
                 <article>
 
-                    <span class="icon">
-                        ⚡
-                    </span>
+                    <div class="skill-icon">⚡</div>
 
-                    <h3>
-                        CORE EXPERTISE
-                    </h3>
+                    <h3>CORE EXPERTISE</h3>
 
                     <p>
-
-                        Circuit Design · Embedded Systems · Microcontrollers
-                        · Sensor Integration · IoT · Frontend Architecture
-
+                        Circuit Design, Embedded Systems, Microcontrollers,
+                        Sensor Integration, IoT and Frontend Architecture.
                     </p>
 
                 </article>
@@ -387,19 +429,13 @@
 
                 <article>
 
-                    <span class="icon">
-                        ◈
-                    </span>
+                    <div class="skill-icon">◈</div>
 
-                    <h3>
-                        TOOLS & SOFT SKILLS
-                    </h3>
+                    <h3>TOOLS</h3>
 
                     <p>
-
-                        Vercel · Git · VS Code · Problem Solving · Team
-                        Management · Leadership · Communication
-
+                        Git, GitHub, Vercel, VS Code, Problem Solving,
+                        Leadership and Communication.
                     </p>
 
                 </article>
@@ -409,32 +445,20 @@
         </section>
 
 
-        <!-- ================= PROJECTS ================= -->
+        <!-- =================================
+             PROJECTS
+        ================================== -->
 
-        <section id="projects" class="section projects-section">
+        <section class="section projects" id="projects">
 
-            <div class="section-top">
-
-                <span class="num">
-                    03
-                </span>
-
-                <span class="tag">
-                    THE WEB OF PROJECTS
-                </span>
-
+            <div class="section-label">
+                03 / MISSIONS
             </div>
 
-
-            <h2 class="mega">
+            <h2 class="big-title">
 
                 MY
-
-                <br>
-
-                <span>
-                    MISSIONS
-                </span>
+                <span>PROJECTS</span>
 
             </h2>
 
@@ -442,237 +466,168 @@
             <div class="project-grid">
 
 
-                <!-- PROJECT 1 -->
+                <article class="project-card">
 
-                <article class="project-card featured">
+                    <div class="project-number">01</div>
 
-                    <div class="project-index">
-                        01
-                    </div>
-
-                    <div class="project-meta">
+                    <div class="project-type">
                         WEB DEVELOPMENT
                     </div>
 
                     <h3>
-
                         GROCERY
                         <br>
-
                         DELIVERY
                         <br>
-
                         PARTNER
-
                     </h3>
 
                     <p>
-
-                        Scalable delivery-partner workflow and
-                        order-management experience with responsive
-                        task tracking.
-
+                        Scalable web application designed to streamline
+                        delivery partner workflows, order management and
+                        operational efficiency.
                     </p>
 
                     <div class="chips">
-
                         <span>React.js</span>
                         <span>Next.js</span>
                         <span>Vercel</span>
-
                     </div>
 
-                    <a href="https://grocery-delivery-partner.vercel.app/"
-                        target="_blank">
-
+                    <a
+                        href="https://grocery-delivery-partner.vercel.app/"
+                        target="_blank"
+                    >
                         LIVE DEMO ↗
-
                     </a>
 
                 </article>
 
 
-                <!-- PROJECT 2 -->
-
                 <article class="project-card">
 
-                    <div class="project-index">
-                        02
-                    </div>
+                    <div class="project-number">02</div>
 
-                    <div class="project-meta">
+                    <div class="project-type">
                         WEB DEVELOPMENT
                     </div>
 
                     <h3>
-
                         HOTEL
                         <br>
-
                         ROOM
                         <br>
-
                         BOOKING
-
                     </h3>
 
                     <p>
-
-                        Responsive hotel booking platform with room
-                        browsing, reservation flow and clean UI/UX.
-
+                        Responsive hotel booking platform enabling users
+                        to browse rooms and make reservations through
+                        a clean interface.
                     </p>
 
                     <div class="chips">
-
                         <span>HTML</span>
                         <span>CSS</span>
                         <span>JavaScript</span>
-
                     </div>
 
-                    <a href="https://shreyashkrishnagupta2111.github.io/Hotel-Room-Booking/"
-                        target="_blank">
-
+                    <a
+                        href="https://shreyashkrishnagupta2111.github.io/Hotel-Room-Booking/"
+                        target="_blank"
+                    >
                         LIVE DEMO ↗
-
                     </a>
 
                 </article>
 
 
-                <!-- PROJECT 3 -->
-
                 <article class="project-card">
 
-                    <div class="project-index">
-                        03
-                    </div>
+                    <div class="project-number">03</div>
 
-                    <div class="project-meta">
+                    <div class="project-type">
                         EMBEDDED SYSTEM
                     </div>
 
                     <h3>
-
                         AUTOMATIC
                         <br>
-
                         STREET
                         <br>
-
                         LIGHT
-
                     </h3>
 
                     <p>
-
-                        Arduino Uno, LDR and relay based automatic
-                        lighting with real-time ambient light detection.
-
+                        Arduino Uno, LDR and relay based automated
+                        street lighting system using real-time ambient
+                        light detection.
                     </p>
 
                     <div class="chips">
-
                         <span>Arduino</span>
                         <span>LDR</span>
                         <span>Relay</span>
-
                     </div>
-
-                    <span class="muted-link">
-                        HARDWARE PROJECT
-                    </span>
 
                 </article>
 
 
-                <!-- PROJECT 4 -->
-
                 <article class="project-card">
 
-                    <div class="project-index">
-                        04
-                    </div>
+                    <div class="project-number">04</div>
 
-                    <div class="project-meta">
+                    <div class="project-type">
                         AEROSPACE
                     </div>
 
                     <h3>
-
                         ROTARY WING
                         <br>
-
                         DRONE
                         <br>
-
                         ARCHITECTURE
-
                     </h3>
 
                     <p>
-
-                        Conceptual rotary-wing aircraft study focused on
-                        VTOL, hover stability, thrust and structural mechanics.
-
+                        Conceptual study of VTOL aircraft, hover stability,
+                        thrust dynamics, aerodynamics and structural mechanics.
                     </p>
 
                     <div class="chips">
-
                         <span>VTOL</span>
-                        <span>Flight Dynamics</span>
                         <span>Aerodynamics</span>
-
+                        <span>Flight Dynamics</span>
                     </div>
-
-                    <span class="muted-link">
-                        CONCEPT & STUDY
-                    </span>
 
                 </article>
 
 
-                <!-- PROJECT 5 -->
-
                 <article class="project-card wide">
 
-                    <div class="project-index">
-                        05
-                    </div>
+                    <div class="project-number">05</div>
 
-                    <div class="project-meta">
+                    <div class="project-type">
                         UAV / SECURITY
                     </div>
 
                     <h3>
-
                         SURVEILLANCE
-                        <br>
-
-                        & SPY DRONE SYSTEM
-
+                        &
+                        SPY DRONE
                     </h3>
 
                     <p>
-
-                        Exploration of UAV applications for real-time
-                        surveillance, remote sensing, wireless communication
-                        feeds, payload integration and field monitoring constraints.
-
+                        Research and conceptual exploration of UAV
+                        surveillance, remote sensing, wireless communication,
+                        payload integration and field monitoring systems.
                     </p>
 
                     <div class="chips">
-
                         <span>UAV</span>
                         <span>IoT</span>
                         <span>Wireless Communication</span>
-
                     </div>
-
-                    <span class="muted-link">
-                        RESEARCH & STUDY
-                    </span>
 
                 </article>
 
@@ -681,102 +636,72 @@
         </section>
 
 
-        <!-- ================= EDUCATION ================= -->
+        <!-- =================================
+             EDUCATION
+        ================================== -->
 
-        <section id="education" class="section">
+        <section class="section education" id="education">
 
-            <div class="section-top">
-
-                <span class="num">
-                    04
-                </span>
-
-                <span class="tag">
-                    TRAINING GROUND
-                </span>
-
+            <div class="section-label">
+                04 / TRAINING GROUND
             </div>
 
-
-            <h2 class="mega">
+            <h2 class="big-title">
                 EDUCATION
             </h2>
 
 
-            <div class="edu-list">
-
+            <div class="education-list">
 
                 <article>
 
-                    <span class="year">
-                        2023—PRESENT
-                    </span>
+                    <span>2023 — PRESENT</span>
 
                     <div>
-
                         <h3>
                             PRANVEER SINGH INSTITUTE OF TECHNOLOGY
                         </h3>
 
                         <p>
-                            B.Tech in Electronics & Communication Engineering
+                            B.Tech — Electronics & Communication Engineering
                         </p>
-
                     </div>
 
-                    <strong>
-                        65.1%
-                    </strong>
+                    <strong>65.1%</strong>
 
                 </article>
 
 
                 <article>
 
-                    <span class="year">
-                        2021—2023
-                    </span>
+                    <span>2021 — 2023</span>
 
                     <div>
-
-                        <h3>
-                            HAPPY MODEL SCHOOL
-                        </h3>
+                        <h3>HAPPY MODEL SCHOOL</h3>
 
                         <p>
                             Class XII — Intermediate
                         </p>
-
                     </div>
 
-                    <strong>
-                        64.2%
-                    </strong>
+                    <strong>64.2%</strong>
 
                 </article>
 
 
                 <article>
 
-                    <span class="year">
-                        2019—2021
-                    </span>
+                    <span>2019 — 2021</span>
 
                     <div>
-
-                        <h3>
-                            HAPPY MODEL SCHOOL
-                        </h3>
+                        <h3>HAPPY MODEL SCHOOL</h3>
 
                         <p>
                             Class X — High School
                         </p>
-
                     </div>
 
-                    <strong>
-                        66.6%
-                    </strong>
+                    <strong>66.6%</strong>
 
                 </article>
 
@@ -785,120 +710,46 @@
         </section>
 
 
-        <!-- ================= EXTRAS ================= -->
+        <!-- =================================
+             CONTACT
+        ================================== -->
 
-        <section class="section extras">
+        <section class="contact" id="contact">
 
-            <div class="extra-card">
+            <div class="contact-web"></div>
 
-                <span class="tag">
-                    LANGUAGES
-                </span>
-
-                <h3>
-                    COMMUNICATION
-                </h3>
-
-                <p>
-                    English — Full Professional
-                </p>
-
-                <p>
-                    Hindi — Full Professional
-                </p>
-
+            <div class="section-label">
+                05 / FINAL SWING
             </div>
-
-
-            <div class="extra-card">
-
-                <span class="tag">
-                    INTERESTS & ACTIVITIES
-                </span>
-
-                <h3>
-                    BEYOND CODE
-                </h3>
-
-                <div class="chips">
-
-                    <span>
-                        Hardware Prototyping
-                    </span>
-
-                    <span>
-                        IoT
-                    </span>
-
-                    <span>
-                        Web Development
-                    </span>
-
-                    <span>
-                        Football
-                    </span>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- ================= CONTACT ================= -->
-
-        <section id="contact" class="section contact">
-
-            <span class="num">
-                05
-            </span>
-
-            <span class="tag">
-                SHOOT ME A WEB
-            </span>
-
 
             <h2>
 
                 LET'S BUILD
-
-                <br>
-
-                <span>
-                    SOMETHING
-                </span>
-
-                <br>
-
-                GREAT.
+                <span>SOMETHING</span>
+                CRAZY.
 
             </h2>
 
-
             <p>
-
-                Job opportunity, project, collaboration or just
-                a conversation — let's connect.
-
+                Have a project, opportunity or collaboration?
+                Shoot me a message.
             </p>
 
-
-            <a href="mailto:2K23.ece2311352@gmail.com"
-                class="email">
-
+            <a
+                class="email"
+                href="mailto:2K23.ece2311352@gmail.com"
+            >
                 2K23.ECE2311352@GMAIL.COM ↗
-
             </a>
 
-
-            <div class="contact-links">
-
-                <a href="https://linkedin.com/" target="_blank">
-                    LINKEDIN ↗
-                </a>
+            <div class="contact-social">
 
                 <a href="https://github.com/" target="_blank">
                     GITHUB ↗
+                </a>
+
+                <a href="https://linkedin.com/" target="_blank">
+                    LINKEDIN ↗
                 </a>
 
             </div>
@@ -921,9 +772,7 @@
     </footer>
 
 
-    <!-- THREE.JS -->
-
-    <script type="module" src="script.js"></script>
+    <script src="script.js"></script>
 
 </body>
 
