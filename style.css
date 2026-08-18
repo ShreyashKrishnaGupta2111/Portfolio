@@ -1,0 +1,1225 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #050505;
+    color: #ffffff;
+    font-family: "Inter", sans-serif;
+    overflow-x: hidden;
+}
+
+::selection {
+    background: #e50914;
+    color: #fff;
+}
+
+
+/* ================= LOADER ================= */
+
+#loader {
+    position: fixed;
+    inset: 0;
+
+    background: #050505;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    z-index: 99999;
+
+    transition: 0.8s;
+}
+
+.loader-spider {
+    font-size: 80px;
+
+    animation:
+        spiderLoader 1s infinite alternate;
+}
+
+#loader p {
+    margin-top: 20px;
+
+    color: #e50914;
+
+    font-size: 11px;
+
+    letter-spacing: 4px;
+
+    font-weight: 800;
+}
+
+@keyframes spiderLoader {
+
+    from {
+        transform: translateY(-15px) rotate(-5deg);
+    }
+
+    to {
+        transform: translateY(15px) rotate(5deg);
+    }
+
+}
+
+
+/* ================= NAVBAR ================= */
+
+.navbar {
+
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+
+    height: 80px;
+
+    padding: 0 6%;
+
+    display: flex;
+
+    justify-content: space-between;
+    align-items: center;
+
+    z-index: 5000;
+
+    background: rgba(5,5,5,0.75);
+
+    backdrop-filter: blur(15px);
+
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.logo {
+
+    text-decoration: none;
+
+    color: white;
+
+    font-family: "Bebas Neue";
+
+    font-size: 28px;
+
+    letter-spacing: 3px;
+}
+
+.logo span {
+    color: #e50914;
+}
+
+nav {
+
+    display: flex;
+
+    gap: 30px;
+}
+
+nav a {
+
+    text-decoration: none;
+
+    color: #aaa;
+
+    font-size: 10px;
+
+    font-weight: 800;
+
+    letter-spacing: 2px;
+
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: #e50914;
+}
+
+.menu-btn {
+
+    display: none;
+
+    border: none;
+
+    background: none;
+
+    color: white;
+
+    font-size: 25px;
+}
+
+
+/* ================= WEB BACKGROUND ================= */
+
+.web-background {
+
+    position: fixed;
+
+    width: 700px;
+    height: 700px;
+
+    right: -250px;
+    top: 100px;
+
+    opacity: 0.08;
+
+    border-radius: 50%;
+
+    background:
+        repeating-radial-gradient(
+            circle,
+            transparent 0,
+            transparent 40px,
+            white 41px,
+            transparent 42px
+        );
+
+    pointer-events: none;
+
+    z-index: 0;
+}
+
+
+/* ================= HERO ================= */
+
+.hero {
+
+    min-height: 100vh;
+
+    padding: 150px 8% 80px;
+
+    display: flex;
+
+    align-items: center;
+
+    position: relative;
+
+    overflow: hidden;
+
+    background:
+
+        radial-gradient(
+            circle at 80% 50%,
+            rgba(20,50,140,0.25),
+            transparent 35%
+        ),
+
+        radial-gradient(
+            circle at 20% 80%,
+            rgba(229,9,20,0.16),
+            transparent 30%
+        ),
+
+        #050505;
+}
+
+.hero-content {
+
+    position: relative;
+
+    z-index: 5;
+
+    max-width: 900px;
+}
+
+.availability {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    padding: 8px 14px;
+
+    border: 1px solid #252525;
+
+    font-size: 9px;
+
+    font-weight: 800;
+
+    letter-spacing: 2px;
+
+    color: #aaa;
+
+    margin-bottom: 25px;
+}
+
+.availability span {
+
+    width: 7px;
+    height: 7px;
+
+    border-radius: 50%;
+
+    background: #20c20e;
+
+    box-shadow: 0 0 12px #20c20e;
+}
+
+.hero-intro {
+
+    color: #e50914;
+
+    font-size: 12px;
+
+    font-weight: 800;
+
+    letter-spacing: 6px;
+
+    margin-bottom: 15px;
+}
+
+.hero h1 {
+
+    font-family: "Bebas Neue";
+
+    font-size: clamp(80px, 12vw, 175px);
+
+    line-height: 0.76;
+
+    letter-spacing: 4px;
+}
+
+.hero h1 span {
+
+    display: block;
+}
+
+.outline {
+
+    color: transparent;
+
+    -webkit-text-stroke: 2px #fff;
+}
+
+.red {
+
+    color: #e50914;
+
+    text-shadow:
+        6px 6px 0 #111,
+        10px 10px 30px rgba(229,9,20,0.35);
+}
+
+.white {
+
+    color: #fff;
+}
+
+.hero h2 {
+
+    margin-top: 35px;
+
+    font-size: 15px;
+
+    letter-spacing: 4px;
+
+    color: #ddd;
+}
+
+.hero-description {
+
+    max-width: 600px;
+
+    margin-top: 20px;
+
+    color: #888;
+
+    line-height: 1.8;
+
+    font-size: 14px;
+}
+
+
+/* ================= BUTTONS ================= */
+
+.hero-buttons {
+
+    display: flex;
+
+    gap: 15px;
+
+    margin-top: 35px;
+}
+
+.btn {
+
+    padding: 16px 25px;
+
+    text-decoration: none;
+
+    font-size: 10px;
+
+    font-weight: 800;
+
+    letter-spacing: 2px;
+
+    transition: 0.3s;
+}
+
+.primary {
+
+    background: #e50914;
+
+    color: white;
+}
+
+.primary:hover {
+
+    transform: translateY(-5px);
+
+    box-shadow:
+        0 15px 40px rgba(229,9,20,0.35);
+}
+
+.secondary {
+
+    border: 1px solid #333;
+
+    color: white;
+}
+
+.secondary:hover {
+
+    border-color: #e50914;
+
+    color: #e50914;
+}
+
+
+/* ================= SOCIAL LINKS ================= */
+
+.social-links {
+
+    display: flex;
+
+    gap: 25px;
+
+    margin-top: 45px;
+}
+
+.social-links a {
+
+    color: #555;
+
+    text-decoration: none;
+
+    font-size: 9px;
+
+    font-weight: 800;
+
+    letter-spacing: 2px;
+
+    transition: 0.3s;
+}
+
+.social-links a:hover {
+    color: #e50914;
+}
+
+
+/* ================= HERO SPIDER ================= */
+
+.hero-visual {
+
+    position: absolute;
+
+    right: 5%;
+
+    top: 15%;
+
+    width: 400px;
+
+    height: 600px;
+}
+
+.spider-symbol {
+
+    position: absolute;
+
+    top: 120px;
+
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    font-size: 190px;
+
+    filter:
+        drop-shadow(
+            0 0 35px
+            rgba(229,9,20,0.5)
+        );
+
+    animation: spiderFloat 5s ease-in-out infinite;
+}
+
+.vertical-line {
+
+    position: absolute;
+
+    width: 1px;
+
+    height: 180px;
+
+    top: 0;
+
+    left: 50%;
+
+    background:
+        linear-gradient(
+            white,
+            transparent
+        );
+}
+
+.hero-label {
+
+    position: absolute;
+
+    bottom: 60px;
+
+    right: 0;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 8px;
+
+    font-size: 9px;
+
+    letter-spacing: 3px;
+
+    color: #555;
+
+    text-align: right;
+}
+
+.hero-label span:first-child {
+    color: #e50914;
+}
+
+@keyframes spiderFloat {
+
+    0%,100% {
+        transform:
+            translateX(-50%)
+            translateY(0)
+            rotate(-3deg);
+    }
+
+    50% {
+        transform:
+            translateX(-50%)
+            translateY(30px)
+            rotate(3deg);
+    }
+}
+
+
+/* ================= SECTIONS ================= */
+
+.section {
+
+    padding: 130px 8%;
+
+    border-top: 1px solid #181818;
+
+    position: relative;
+
+    z-index: 2;
+}
+
+.section-header {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    margin-bottom: 45px;
+}
+
+.section-number {
+
+    color: #e50914;
+
+    font-size: 12px;
+
+    font-weight: 800;
+
+    letter-spacing: 3px;
+}
+
+.section-tag {
+
+    font-size: 10px;
+
+    font-weight: 800;
+
+    letter-spacing: 4px;
+
+    color: #555;
+}
+
+.big-heading {
+
+    font-family: "Bebas Neue";
+
+    font-size: clamp(65px, 10vw, 140px);
+
+    line-height: 0.85;
+
+    letter-spacing: 3px;
+
+    margin-bottom: 70px;
+}
+
+.big-heading span {
+
+    color: #e50914;
+}
+
+
+/* ================= ABOUT ================= */
+
+.about-grid {
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 100px;
+
+    align-items: center;
+}
+
+.about-grid h2 {
+
+    font-family: "Bebas Neue";
+
+    font-size: clamp(60px, 8vw, 120px);
+
+    line-height: 0.85;
+}
+
+.about-grid h2 span {
+    color: #e50914;
+}
+
+.about-text {
+
+    color: #888;
+
+    line-height: 1.9;
+
+    font-size: 15px;
+}
+
+.about-text p {
+    margin-bottom: 25px;
+}
+
+
+/* ================= SKILLS ================= */
+
+.skills-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 20px;
+}
+
+.skill-category {
+
+    padding: 35px;
+
+    border: 1px solid #222;
+
+    background: #090909;
+
+    min-height: 330px;
+
+    transition: 0.4s;
+}
+
+.skill-category:hover {
+
+    transform: translateY(-8px);
+
+    border-color: #e50914;
+}
+
+.skill-icon {
+
+    color: #e50914;
+
+    font-size: 30px;
+
+    margin-bottom: 30px;
+}
+
+.skill-category h3 {
+
+    font-family: "Bebas Neue";
+
+    font-size: 32px;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 25px;
+}
+
+.skill-list {
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 8px;
+}
+
+.skill-list span {
+
+    padding: 8px 11px;
+
+    background: #151515;
+
+    color: #aaa;
+
+    font-size: 10px;
+
+    font-weight: 700;
+}
+
+
+/* ================= PROJECTS ================= */
+
+.projects-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 20px;
+}
+
+.project-card {
+
+    min-height: 510px;
+
+    padding: 35px;
+
+    position: relative;
+
+    border: 1px solid #222;
+
+    background:
+
+        linear-gradient(
+            135deg,
+            #111,
+            #070707
+        );
+
+    overflow: hidden;
+
+    transition: 0.4s;
+}
+
+.project-card::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 250px;
+    height: 250px;
+
+    right: -120px;
+    bottom: -120px;
+
+    border-radius: 50%;
+
+    border: 1px solid rgba(229,9,20,0.25);
+
+    box-shadow:
+        0 0 0 30px rgba(229,9,20,0.03),
+        0 0 0 60px rgba(229,9,20,0.03),
+        0 0 0 90px rgba(229,9,20,0.03);
+}
+
+.project-card:hover {
+
+    transform: translateY(-8px);
+
+    border-color: #e50914;
+
+    box-shadow:
+        0 25px 60px
+        rgba(229,9,20,0.12);
+}
+
+.project-top {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    color: #e50914;
+
+    font-size: 9px;
+
+    font-weight: 800;
+
+    letter-spacing: 2px;
+}
+
+.project-card h3 {
+
+    font-family: "Bebas Neue";
+
+    font-size: 52px;
+
+    line-height: 0.9;
+
+    letter-spacing: 2px;
+
+    margin: 65px 0 25px;
+}
+
+.project-card p {
+
+    color: #777;
+
+    font-size: 12px;
+
+    line-height: 1.7;
+
+    max-width: 550px;
+
+    margin-bottom: 15px;
+}
+
+.tech-stack {
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 8px;
+
+    margin-top: 25px;
+}
+
+.tech-stack span {
+
+    border: 1px solid #292929;
+
+    padding: 7px 10px;
+
+    font-size: 9px;
+
+    color: #aaa;
+}
+
+.project-link {
+
+    position: absolute;
+
+    bottom: 30px;
+
+    right: 30px;
+
+    text-decoration: none;
+
+    color: white;
+
+    font-size: 9px;
+
+    font-weight: 800;
+
+    letter-spacing: 2px;
+
+    z-index: 2;
+}
+
+.project-link:hover {
+    color: #e50914;
+}
+
+.project-link.disabled {
+    color: #555;
+
+    cursor: default;
+}
+
+
+/* ================= EDUCATION ================= */
+
+.education-list {
+
+    border-top: 1px solid #222;
+}
+
+.education-card {
+
+    display: grid;
+
+    grid-template-columns:
+        180px 1fr 100px;
+
+    gap: 30px;
+
+    padding: 30px 0;
+
+    border-bottom: 1px solid #222;
+
+    align-items: center;
+
+    transition: 0.3s;
+}
+
+.education-card:hover {
+
+    padding-left: 15px;
+
+    border-color: #e50914;
+}
+
+.education-year {
+
+    color: #e50914;
+
+    font-size: 10px;
+
+    font-weight: 800;
+
+    letter-spacing: 2px;
+}
+
+.education-content h3 {
+
+    font-size: 15px;
+
+    margin-bottom: 8px;
+}
+
+.education-content p {
+
+    color: #777;
+
+    font-size: 12px;
+}
+
+.score {
+
+    color: white;
+
+    font-family: "Bebas Neue";
+
+    font-size: 30px;
+
+    text-align: right;
+}
+
+
+/* ================= ADDITIONAL ================= */
+
+.additional-grid {
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 100px;
+}
+
+.additional-grid h2 {
+
+    font-family: "Bebas Neue";
+
+    font-size: 55px;
+
+    margin: 25px 0;
+}
+
+.additional-grid p {
+
+    color: #888;
+
+    margin-bottom: 12px;
+
+    font-size: 13px;
+}
+
+.interest-tags {
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 10px;
+}
+
+.interest-tags span {
+
+    padding: 12px 16px;
+
+    border: 1px solid #282828;
+
+    color: #888;
+
+    font-size: 10px;
+}
+
+
+/* ================= CONTACT ================= */
+
+.contact-section {
+
+    min-height: 90vh;
+
+    display: flex;
+
+    align-items: center;
+
+    background:
+
+        radial-gradient(
+            circle at 70% 50%,
+            rgba(229,9,20,0.1),
+            transparent 35%
+        );
+}
+
+.contact-content {
+
+    max-width: 900px;
+}
+
+.contact-content .section-tag {
+
+    display: block;
+
+    margin: 15px 0 40px;
+}
+
+.contact-content h2 {
+
+    font-family: "Bebas Neue";
+
+    font-size: clamp(70px, 11vw, 160px);
+
+    line-height: 0.78;
+
+    margin-bottom: 40px;
+}
+
+.contact-content h2 span {
+    color: #e50914;
+}
+
+.contact-content > p:not(.section-tag) {
+
+    color: #777;
+
+    max-width: 550px;
+
+    line-height: 1.8;
+}
+
+.contact-email {
+
+    display: inline-block;
+
+    margin-top: 35px;
+
+    color: white;
+
+    text-decoration: none;
+
+    font-size: clamp(14px,2vw,20px);
+
+    font-weight: 800;
+
+    letter-spacing: 2px;
+
+    border-bottom: 2px solid #e50914;
+
+    padding-bottom: 8px;
+}
+
+.contact-email:hover {
+    color: #e50914;
+}
+
+.contact-socials {
+
+    display: flex;
+
+    gap: 25px;
+
+    margin-top: 40px;
+}
+
+.contact-socials a {
+
+    color: #555;
+
+    text-decoration: none;
+
+    font-size: 10px;
+
+    font-weight: 800;
+
+    letter-spacing: 2px;
+}
+
+.contact-socials a:hover {
+    color: #e50914;
+}
+
+
+/* ================= FOOTER ================= */
+
+footer {
+
+    padding: 30px 8%;
+
+    border-top: 1px solid #181818;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    color: #444;
+
+    font-size: 9px;
+
+    letter-spacing: 2px;
+}
+
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 900px) {
+
+    nav {
+
+        display: none;
+
+        position: absolute;
+
+        top: 80px;
+
+        left: 0;
+
+        width: 100%;
+
+        padding: 25px;
+
+        background: #080808;
+
+        flex-direction: column;
+
+        gap: 20px;
+
+        border-bottom: 1px solid #222;
+    }
+
+    nav.active {
+        display: flex;
+    }
+
+    .menu-btn {
+        display: block;
+    }
+
+    .hero-visual {
+        opacity: 0.15;
+
+        right: -100px;
+    }
+
+    .about-grid,
+    .skills-grid,
+    .additional-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .education-card {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
+    .score {
+        text-align: left;
+    }
+
+    footer {
+        flex-direction: column;
+
+        gap: 12px;
+    }
+}
+
+
+@media (max-width: 600px) {
+
+    .hero {
+        padding: 130px 6% 70px;
+    }
+
+    .section {
+        padding: 90px 6%;
+    }
+
+    .hero h1 {
+        font-size: 75px;
+    }
+
+    .hero h2 {
+        font-size: 11px;
+
+        line-height: 1.6;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+
+        max-width: 280px;
+    }
+
+    .social-links {
+        flex-wrap: wrap;
+    }
+
+    .project-card {
+        min-height: 550px;
+    }
+
+    .project-card h3 {
+        font-size: 42px;
+    }
+
+}
